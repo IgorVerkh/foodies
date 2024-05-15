@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="deploymentTargetDropDown">
+    <value>
+      <entry key="CataloguePreview">
+        <State />
+      </entry>
+      <entry key="CatalogueTopAppBarPreview">
+        <State />
+      </entry>
+      <entry key="ProductGridPreview">
+        <State>
+          <targetSelectedWithDropDown>
+            <Target>
+              <type value="QUICK_BOOT_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="C:\Users\Igor\.android\avd\Pixel_6_Pro_API_30.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </targetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-04-15T07:15:40.501073100Z" />
+        </State>
+      </entry>
+      <entry key="SearchViewPreview">
+        <State />
+      </entry>
+      <entry key="app">
+        <State>
+          <runningDeviceTargetSelectedWithDropDown>
+            <Target>
+              <type value="RUNNING_DEVICE_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="C:\Users\Igor\.android\avd\Pixel_6_Pro_API_30.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </runningDeviceTargetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-05-15T17:43:39.870920600Z" />
+        </State>
+      </entry>
+    </value>
+  </component>
+</project>
