@@ -1,7 +1,7 @@
 # Foodies
 ## Тестовое Android-приложение для Black Hammer Digital Teams
 
-![Recording GIF](./assets/recording.gif)
+![Recording GIF](/assets/recording.gif)
 
 ## Известные баги
 
