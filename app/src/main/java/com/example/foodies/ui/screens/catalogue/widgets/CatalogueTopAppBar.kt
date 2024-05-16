@@ -1,7 +1,9 @@
 package com.example.foodies.ui.screens.catalogue.widgets
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -19,6 +21,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.foodies.R
 import com.example.foodies.ui.theme.OrangePrimary
 import com.example.foodies.ui.theme.PaleGrey
@@ -44,7 +47,8 @@ fun CatalogueTopAppBar(
             text = searchText,
             onValueChange = { onSearchChange(it) },
             onClear = onClearSearchText,
-            onBackClick = onBackClick
+            onBackClick = onBackClick,
+            modifier = Modifier.height(64.dp)
         )
         AppBarState.IDLE -> DefaultTopAppBar(
             filterBadge = filterBadge,
@@ -121,8 +125,8 @@ private fun SearchTopAppBar(
         singleLine = true,
         shape = RectangleShape,
         colors = TextFieldDefaults.colors(
-            focusedContainerColor = Color.White,
-            unfocusedContainerColor = Color.White,
+            focusedContainerColor = Color.Transparent,
+            unfocusedContainerColor = Color.Transparent,
             unfocusedPlaceholderColor = PaleGrey,
             focusedPlaceholderColor = Color.Transparent,
             focusedIndicatorColor = Color.Transparent,
@@ -142,7 +146,7 @@ private fun CatalogueTopAppBarPreview() {
         value = ""
     }
     var state by remember {
-        mutableStateOf(AppBarState.IDLE)
+        mutableStateOf(AppBarState.SEARCH)
     }
     CatalogueTopAppBar(
         state = state,

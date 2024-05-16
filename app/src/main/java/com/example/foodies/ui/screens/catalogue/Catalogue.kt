@@ -83,7 +83,14 @@ fun CatalogueScreen(
 
     CatalogueContent(
         categories = categoriesList.toImmutableList(),
-        products = productList.filter { it.name.lowercase().contains(searchText.lowercase()) }.toImmutableList(),
+        products = productList
+            // I know this is sooooo bad
+            // TODO: rework
+            .filter { it.name.lowercase().contains(searchText.lowercase()) }
+            .filter { (noMeat and it.tagIds.contains(2)) or !noMeat }
+            .filter { (spicy and it.tagIds.contains(4)) or !spicy }
+            .filter { (discount and (it.priceOld != null)) or !discount }
+            .toImmutableList(),
         productsCart = productCart.toImmutableMap(),
         activeCategory = activeCategory,
         total = total,

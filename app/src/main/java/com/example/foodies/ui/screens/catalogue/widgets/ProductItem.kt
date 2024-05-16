@@ -30,6 +30,19 @@ import com.example.foodies.data.model.Product
 import com.example.foodies.ui.theme.GreyBackground
 import com.example.foodies.ui.theme.PaleGrey
 
+fun tagBadgeId(product: Product): Int? {
+    if (product.priceOld != null) {
+        return R.drawable.ic_tag_discount
+    }
+    if (product.tagIds.contains(4)) {
+        return R.drawable.ic_tag_spicy
+    }
+    if (product.tagIds.contains(2)) {
+        return R.drawable.ic_tag_vegetarian
+    }
+    return null
+}
+
 @Composable
 fun ProductItem(
     product: Product,
@@ -38,9 +51,9 @@ fun ProductItem(
     onRemoveClick: (Int) -> Unit,
     onAddClick: (Int) -> Unit,
     modifier: Modifier = Modifier,
-    tagId: Int? = null,
     quantity: Int = 0
 ) {
+    val tagBadge = tagBadgeId(product)
 
     Surface(
         color = GreyBackground,
@@ -61,11 +74,13 @@ fun ProductItem(
                     placeholder = painterResource(id = R.drawable.default_product_image),
                     modifier = Modifier.size(200.dp)
                 )
-                Image(
-                    painter = painterResource(id = R.drawable.ic_tag_discount),
-                    contentDescription = null,
-                    modifier = Modifier.padding(8.dp)
-                )
+                if (tagBadge != null) {
+                    Image(
+                        painter = painterResource(id = tagBadge),
+                        contentDescription = null,
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
             }
             // Magically pulls down everything below
             Spacer(modifier = Modifier.weight(1f))
@@ -146,7 +161,7 @@ private fun ProductItemPreview() {
         carbohydratesPer100Grams = 38.2,
         fatsPer100Grams = 0.3,
         proteinsPer100Grams = 12.2,
-        tagIds = listOf()
+        tagIds = listOf(4)
     )
     var quantity by remember { mutableIntStateOf(100) }
     ProductItem(
